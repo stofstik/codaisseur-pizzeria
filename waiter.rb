@@ -1,15 +1,20 @@
+require './bill.rb'
+
 class Waiter
 
     def initialize(menu, kitchen)
         @menu = menu
         @kitchen = kitchen
+
+        @bill = Bill.new
+        @serving  = true
     end
 
     def greet_guest
         puts
-        puts "###############################"
-        puts "# Welcome! How can I help you #"
-        puts "###############################"
+        puts "############"
+        puts "# Welcome! #"
+        puts "############"
         puts
     end
 
@@ -17,10 +22,9 @@ class Waiter
         dish = @menu.contents[choice - 1]
         if @kitchen.order(dish)
             p "Coming up!"
-            serve_guest
+            @bill.add(dish)
         else
             p "Sorry that's all gone"
-            serve_guest
         end
     end
 
@@ -33,14 +37,20 @@ class Waiter
     def take_order(order_num)
         case order_num
             when 1
-                p "Let me get the menu"
+                puts "Let me get the menu"
                 list_menu
                 order_food(gets.chomp.to_i)
             when 2
-                p "Goodbye!"
+                puts "Thank you! Your bill is € #{@bill.receipt}"
+                puts "Goodbye!"
+                @serving = false
             else
-                p "Que catso fai?"
+                puts "Que catso fai?"
         end
+    end
+
+    def serving?
+        @serving
     end
 
     def serve_guest

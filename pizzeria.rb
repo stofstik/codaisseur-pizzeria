@@ -7,4 +7,6 @@ kitchen = Kitchen.new
 w = Waiter.new(menu, kitchen)
 
 w.greet_guest
-w.serve_guest
+while(w.serving?) do
+    w.serve_guest
+end
