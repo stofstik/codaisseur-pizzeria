@@ -87,6 +87,7 @@ class Waiter
                 puts "Thank you! Your bill is € #{@bill.receipt}"
                 puts "Goodbye!"
                 p
+                File.open('bill.txt', 'a') {|file| file.puts("#{Time.now} € #{@bill.receipt}")}
                 @serving = false
             else
                 puts "Que catso fai?"
