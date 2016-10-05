@@ -6,12 +6,22 @@ class Waiter
     end
 
     def greet_guest
-        p "Welcome! How can I help you"
+        puts
+        puts "###############################"
+        puts "# Welcome! How can I help you #"
+        puts "###############################"
+        puts
     end
 
     def order_food(choice)
         dish = @menu.contents[choice - 1]
-        @kitchen.order(dish)
+        if @kitchen.order(dish)
+            p "Coming up!"
+            serve_guest
+        else
+            p "Sorry that's all gone"
+            serve_guest
+        end
     end
 
     def list_menu
@@ -34,9 +44,9 @@ class Waiter
     end
 
     def serve_guest
-        p "How can I help you?"
-        p "1. Would you like to order?"
-        p "2. Would you like to leave?"
+        puts
+        puts "1. Would you like to order?"
+        puts "2. Would you like to leave?"
         take_order(gets.chomp.to_i)
     end
 end

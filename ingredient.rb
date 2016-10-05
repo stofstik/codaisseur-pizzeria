@@ -1,11 +1,11 @@
 class Ingredient
 
-    TOMATO   = "Tomato"
-    DOUGH    = "Dough"
-    CHEESE   = "Cheese"
-    ANCHOVIS = "Anchovis"
+    TOMATO     = "Tomato"
+    DOUGH      = "Dough"
+    CHEESE     = "Cheese"
+    ANCHOVIS   = "Anchovis"
     MOZZARELLA = "Mozzarella"
-    PEPPERONI= "Pepperoni"
+    PEPPERONI  = "Pepperoni"
 
 
     def initialize(name, amount)
@@ -20,4 +20,10 @@ class Ingredient
     def amount
         @amount
     end
+
+    def use(amount)
+        @amount -= amount
+        puts "amount is now #{@amount}"
+    end
+
 end
