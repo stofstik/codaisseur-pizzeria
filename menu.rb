@@ -1,7 +1,5 @@
 require './dish.rb'
 
-require './dish.rb'
-
 class Menu
     # put some stuff in the menu
     def initialize
