@@ -1,9 +1,7 @@
-require './storage.rb'
-
 class Kitchen
 
-    def initialize
-        @storage = Storage.new
+    def initialize(storage)
+        @storage = storage
     end
 
     def order(dish)
@@ -15,6 +13,6 @@ class Kitchen
             p "#{ingredient.amount} - #{ingredient.name}"
         end
 
-        @storage.fetch(dish.ingredients)
+        @storage.fetch_ingredient(dish.ingredients)
     end
 end

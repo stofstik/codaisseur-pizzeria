@@ -6,6 +6,7 @@ class Ingredient
     ANCHOVIS   = "Anchovis"
     MOZZARELLA = "Mozzarella"
     PEPPERONI  = "Pepperoni"
+    PASTA      = "Pasta"
 
 
     def initialize(name, amount)
